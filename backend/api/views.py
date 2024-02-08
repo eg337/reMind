@@ -24,7 +24,8 @@ import sys
 import json
 import subprocess
 from .recursive_algo import func
-api = ''
+import os
+api = os.environ.get('OPENAI_API_KEY')
 from .whisper_transcribe import transcribe
 
 client=OpenAI(api_key = api)
