@@ -6,3 +6,4 @@ faster-whisper==0.10.0
 pydub==0.25.1
 psycopg2 
 whitenoise==6.6.0
+ffprobe
