@@ -42,6 +42,13 @@ def index(request):
 
     return JsonResponse(data)
 
+
+def test_transcript(request):
+     if request.method == 'GET':
+        # Example: Process text data
+        return HttpResponse("RECEIVED")
+
+
 @csrf_exempt
 def upload_transcript(request):
     if request.method == 'POST' and request.FILES['text file']:
