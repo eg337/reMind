@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('MY_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*', os.environ['WEBSITE_HOSTNAME']] #'0.0.0.0','127.0.0.1']
+ALLOWED_HOSTS = ['*', os.environ.get('WEBSITE_HOSTNAME')] #'0.0.0.0','127.0.0.1']
 
 CSRF_TRUSTED_ORIGINS = ['http://localhost:5173/', 'https://salmon-sea-0f4b21710.4.azurestaticapps.net', 'https://remind-ai-backend.azurewebsites.net']
 CORS_ALLOWED_ORIGINS = ['https://salmon-sea-0f4b21710.4.azurestaticapps.net/']
