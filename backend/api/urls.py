@@ -10,7 +10,7 @@ from .views import index
 from .views import home
 from .views import CreateTranscriptView
 from .views import upload_transcript
-from .views import test_transcript
+
 
 urlpatterns = [
     path('', index),
