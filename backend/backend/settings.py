@@ -134,6 +134,6 @@ CORS_ORIGIN_WHITELIST = [
      'http://localhost:5173'
 ]
 
-CSRF_TRUSTED_ORIGINS = ["http://localhost:5173"]
-CSRF_ALLOWED_ORIGINS = ["http://localhost:5173"]
-CORS_ORIGINS_WHITELIST = ["http://localhost:5173"]
+CSRF_TRUSTED_ORIGINS = ['http://localhost:5173/', 'https://salmon-sea-0f4b21710.4.azurestaticapps.net', 'https://remind-ai-backend.azurewebsites.net']
+CSRF_ALLOWED_ORIGINS = ['http://localhost:5173/', 'https://salmon-sea-0f4b21710.4.azurestaticapps.net', 'https://remind-ai-backend.azurewebsites.net']
+CORS_ORIGINS_WHITELIST = ['http://localhost:5173/', 'https://salmon-sea-0f4b21710.4.azurestaticapps.net', 'https://remind-ai-backend.azurewebsites.net']
