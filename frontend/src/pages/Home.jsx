@@ -67,12 +67,7 @@ function Home() {
       const formData = new FormData();
       formData.append(type, file);
       setIsLoading(true);
-      try {
-          const response = await axios.get('https://remind-ai-backend.azurewebsites.net/api/test_transcript/');
-          console.log(response);
-        } catch (error) {
-            console.error(error);
-        }
+    
       try {
         //'http://127.0.0.1:8000/api/upload_transcript/'
         const response = await axios.post('https://remind-ai-backend.azurewebsites.net/api/upload_transcript/', formData, {
