@@ -70,17 +70,18 @@ function Home() {
 
       try {
         //'http://127.0.0.1:8000/api/upload_transcript/'
-        const response = await axios.post('api/upload_transcript/', formData, {
+        const response = await axios.post('https://remind-ai-backend.azurewebsites.net/api/upload_transcript/', formData, {
             headers: {
                 "Content-Type": "multipart/form-data"
             }
         });
-          console.log(response.data);
+          let data=JSON.parse(response.data);
+          console.log(data);
           //setLoadingTranscript(false);
-          let nodesToSet = response.data["nodes"];
-          let edgesToSet = response.data["nodes"];
+          let nodesToSet = data["nodes"];
+          let edgesToSet = data["edges"];
           onLayout({ direction: 'DOWN', nodesToSet, edgesToSet});
-          setInfoDict(response.data.infoDict);
+          setInfoDict(data["infoDict"]);
           setIsLoading(false);
       } catch (error) {
           console.error(error);
@@ -94,7 +95,7 @@ function Home() {
 
       try {
         //'http://127.0.0.1:8000/api/create_transcript/'
-        const response = await axios.post('api/create-transcript/', formData, {
+        const response = await axios.post('https://remind-ai-backend.azurewebsites.net/api/create-transcript/', formData, {
             headers: {
                 "Content-Type": "multipart/form-data"
             }
