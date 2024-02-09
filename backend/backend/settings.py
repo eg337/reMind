@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*'] #'0.0.0.0','127.0.0.1']
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:5173/']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:5173/', 'https://salmon-sea-0f4b21710.4.azurestaticapps.net']
 
 # Application definition
 
