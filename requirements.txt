@@ -1,6 +1,6 @@
-djangorestframework
-django-cors-headers
-Django 
-openai
-faster_whisper
-pydub
+django-cors-headers==4.3.1
+djangorestframework==3.14.0
+Django==4.2.9
+openai==1.11.1
+faster-whisper==0.10.0
+pydub==0.25.1
