@@ -4,3 +4,5 @@ Django==4.2.9
 openai==1.11.1
 faster-whisper==0.10.0
 pydub==0.25.1
+psycopg2 
+whitenoise==6.6.0

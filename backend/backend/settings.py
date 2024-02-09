@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-2n31$1be4j$^%crhlb%utgb**8-u_*!jynl)u(yr$d4#9%$@+x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*'] #'0.0.0.0','127.0.0.1']
+ALLOWED_HOSTS = ['*', os.environ['WEBSITE_HOSTNAME']] #'0.0.0.0','127.0.0.1']
 
 CSRF_TRUSTED_ORIGINS = ['http://localhost:5173/', 'https://salmon-sea-0f4b21710.4.azurestaticapps.net', 'https://remind-ai-backend.azurewebsites.net']
-
+CORS_ALLOWED_ORIGINS = ['https://salmon-sea-0f4b21710.4.azurestaticapps.net/']
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -74,8 +75,17 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'backend.wsgi.application'
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+    },
+}
 
+WSGI_APPLICATION = 'backend.wsgi.application'
+STATIC_ROOT = BASE_DIR/'staticfiles'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -130,10 +140,11 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CORS_ORIGIN_WHITELIST = [
-     'http://localhost:5173'
-]
+# CORS_ORIGIN_WHITELIST = [
+#      'http://localhost:5173'
+# ]
 
 CSRF_TRUSTED_ORIGINS = ['http://localhost:5173/', 'https://salmon-sea-0f4b21710.4.azurestaticapps.net', 'https://remind-ai-backend.azurewebsites.net']
-CSRF_ALLOWED_ORIGINS = ['http://localhost:5173/', 'https://salmon-sea-0f4b21710.4.azurestaticapps.net', 'https://remind-ai-backend.azurewebsites.net']
-CORS_ORIGINS_WHITELIST = ['http://localhost:5173/', 'https://salmon-sea-0f4b21710.4.azurestaticapps.net', 'https://remind-ai-backend.azurewebsites.net']
+#CSRF_ALLOWED_ORIGINS = ['http://localhost:5173/', 'https://salmon-sea-0f4b21710.4.azurestaticapps.net', 'https://remind-ai-backend.azurewebsites.net']
+
+#CORS_ORIGINS_WHITELIST = ['http://localhost:5173/', 'https://salmon-sea-0f4b21710.4.azurestaticapps.net', 'https://remind-ai-backend.azurewebsites.net']
