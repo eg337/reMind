@@ -16,5 +16,4 @@ urlpatterns = [
     path('', index),
     path('create-transcript/', CreateTranscriptView.as_view()),
     path('upload_transcript/', upload_transcript)
-    path('test_transcript/', test_transcript)
 ]
