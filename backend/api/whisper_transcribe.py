@@ -9,7 +9,7 @@ from pydub import AudioSegment
 def transcribe(file, filename):
     os.environ["KMP_DUPLICATE_LIB_OK"] = "True"
     model_size = "large-v2"
-    model = WhisperModel(model_size, device="cpu", compute_type="int8") 
+    model = WhisperModel(model_size, device="cpu", compute_type="float16") 
 
     """
     count = 0
