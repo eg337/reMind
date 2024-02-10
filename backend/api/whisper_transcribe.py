@@ -1,12 +1,14 @@
-import os
-from subprocess import call
 from faster_whisper import WhisperModel
 import sys
 from pydub import AudioSegment
+from subprocess import STDOUT, check_call, call
+import os
 
 
 
 def transcribe(file, filename):
+    check_call(['apt-get', 'install', '-y', 'filetoinstall'],
+     stdout=open(os.devnull,'wb'), stderr=STDOUT) 
     os.environ["KMP_DUPLICATE_LIB_OK"] = "True"
     model_size = "large-v2"
     model = WhisperModel(model_size, device="cpu", compute_type="int8") 
