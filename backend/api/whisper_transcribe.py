@@ -8,7 +8,7 @@ import os
 
 def transcribe(file, filename):
     check_call(['apt-get', 'update'], stdout=open(os.devnull,'wb'), stderr=STDOUT)
-    check_call(['apt-get', 'install', '-y', 'ffmpeg'],
+    check_call(['apt-get', 'install', '-y', 'ffmpeg', 'libavcodec-extra'],
      stdout=open(os.devnull,'wb'), stderr=STDOUT) 
     os.environ["KMP_DUPLICATE_LIB_OK"] = "True"
     model_size = "large-v2"
