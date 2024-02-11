@@ -107,6 +107,7 @@ function Home() {
         let edgesToSet = data["edges"];
         onLayout({ direction: 'DOWN', nodesToSet, edgesToSet});
         setInfoDict(data["infoDict"]);
+        setIsLoading(false);
       } catch (error) {
           console.error(error);
           // Handle error here
